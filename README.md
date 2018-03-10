@@ -46,8 +46,10 @@ Interrogating Replication status:
 
 Testing the database:
 
+    https://www.digitalocean.com/community/tutorials/how-to-measure-mysql-query-performance-with-mysqlslap
+    
     Create a DB called testdb, and a table called table1
-
+    
     brew install mysqlslap
      
     mysqlslap --user=user --iterations=50 --concurrency=10 -q "select * from table1" --port=32805 --host=192.168.1.110 --password=password --create-schema=testdb
