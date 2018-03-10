@@ -26,3 +26,20 @@ List nodes and see mapped ports (use localhost/<mapped port> for SQL Client):
 Useful info:
 
     https://dev.mysql.com/doc/refman/5.7/en/group-replication-launching.html
+
+Interrogating Replication status:
+
+    mysql> SELECT * FROM performance_schema.replication_group_members;
+    +---------------------------+--------------------------------------+--------------+-------------+--------------+
+    | CHANNEL_NAME              | MEMBER_ID                            | MEMBER_HOST  | MEMBER_PORT | MEMBER_STATE |
+    +---------------------------+--------------------------------------+--------------+-------------+--------------+
+    | group_replication_applier | 1d3ce290-244f-11e8-9c16-0242ac130003 | f6b083d5b51c |        3306 | ONLINE       |
+    | group_replication_applier | a991972b-244e-11e8-8b58-0242ac130002 | 4894e0726130 |        3306 | ONLINE       |
+    +---------------------------+--------------------------------------+--------------+-------------+--------------+
+    2 rows in set (0.01 sec)
+    
+    mysql> SHOW BINLOG EVENTS;
+    +-------------------------+------+----------------+------------+-------------+---------------------------------------------------------------------------------------------------------------+
+    | Log_name                | Pos  | Event_type     | Server_id  | End_log_pos | Info                                                                                                          |
+    +-------------------------+------+----------------+------------+-------------+---------------------------------------------------------------------------------------------------------------+
+    | 4894e0726130-bin.000001 |    4 | Format_desc    | 2886926338 |         123 | Server ver: 5.7.14-labs-gr080-log, Binlog ver: 4                                                              |
