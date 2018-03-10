@@ -43,3 +43,11 @@ Interrogating Replication status:
     | Log_name                | Pos  | Event_type     | Server_id  | End_log_pos | Info                                                                                                          |
     +-------------------------+------+----------------+------------+-------------+---------------------------------------------------------------------------------------------------------------+
     | 4894e0726130-bin.000001 |    4 | Format_desc    | 2886926338 |         123 | Server ver: 5.7.14-labs-gr080-log, Binlog ver: 4                                                              |
+
+Testing the database:
+
+    Create a DB called testdb, and a table called table1
+
+    brew install mysqlslap
+     
+    mysqlslap --user=user --iterations=50 --concurrency=10 -q "select * from table1" --port=32805 --host=192.168.1.110 --password=password --create-schema=testdb
