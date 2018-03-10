@@ -22,6 +22,10 @@ Add new user:
 List nodes and see mapped ports (use localhost/<mapped port> for SQL Client):
 
     docker ps -a
+    
+    CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS              PORTS                     NAMES
+    f6b083d5b51c        perconalab/mysql-group-replication   "/entrypoint.sh --gr…"   27 minutes ago      Up 29 minutes       0.0.0.0:32805->3306/tcp   node2
+    4894e0726130        perconalab/mysql-group-replication   "/entrypoint.sh --gr…"   30 minutes ago      Up 33 minutes       0.0.0.0:32804->3306/tcp   node1
 
 Useful info:
 
